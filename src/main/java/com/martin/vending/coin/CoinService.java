@@ -23,7 +23,7 @@ public class CoinService {
         this.requestProduct = requestProduct;
     }
 
-    public boolean isValidCoin(Coin coinToValidate) {
+    public static boolean isValidCoin(Coin coinToValidate) {
         return VALID_COINS.stream().anyMatch(x -> hasValidDimensions(x, coinToValidate));
     }
 

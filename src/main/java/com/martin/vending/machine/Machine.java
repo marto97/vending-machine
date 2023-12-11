@@ -28,7 +28,7 @@ public class Machine {
 
     public VendProduct purchase(String productSelection, List<Coin> coins) {
         var validCoins = Optional.of(coins).stream().flatMap(Collection::stream)
-                .filter(coinService::isValidCoin)
+                .filter(CoinService::isValidCoin)
                 .collect(Collectors.toList());
         var funds = CoinService.countCoins(validCoins);
         var productCost = productService.getProductCost(productSelection);
