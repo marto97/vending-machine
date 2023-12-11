@@ -24,11 +24,6 @@ public class CoinService {
     }
 
     public boolean isValidCoin(Coin coinToValidate) {
-        System.out.println("MARTIN TEST333");
-        System.out.println(coinToValidate.value);
-        System.out.println(coinToValidate.weight);
-        System.out.println(coinToValidate.diameter);
-        System.out.println(VALID_COINS.stream().anyMatch(x -> hasValidDimensions(x, coinToValidate)));
         return VALID_COINS.stream().anyMatch(x -> hasValidDimensions(x, coinToValidate));
     }
 
@@ -56,12 +51,6 @@ public class CoinService {
     }
 
     private static boolean hasValidDimensions(Coin validCoin, Coin coinToValidate) {
-        System.out.println("MARTIN TEST4444");
-        System.out.println(coinToValidate.value);
-        System.out.println(coinToValidate.weight.setScale(2, RoundingMode.HALF_UP));
-        System.out.println(coinToValidate.diameter.setScale(2, RoundingMode.HALF_UP));
-        System.out.println(validCoin.weight.setScale(2, RoundingMode.HALF_UP));
-        System.out.println(validCoin.diameter.setScale(2, RoundingMode.HALF_UP));
         return (validCoin.diameter).setScale(2, RoundingMode.HALF_UP).equals((coinToValidate.diameter).setScale(2, RoundingMode.HALF_UP))
                 && ((validCoin.weight).setScale(2, RoundingMode.HALF_UP)).equals((coinToValidate.weight).setScale(2, RoundingMode.HALF_UP));
     }
